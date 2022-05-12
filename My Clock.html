@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>My Clock</title>
+	<style>
+		body {
+			font-family: consolas;
+			background-color: black;
+			width: 95%;
+			height: 100%;
+
+
+
+		}
+
+		#time {
+			text-align: center;
+			color: #17D4FE;
+			font-size: 70px;
+			margin-top: 240px;
+			vertical-align: middle;
+			border-radius: 3px;
+			
+
+		}
+	</style>
+</head>
+
+<body>
+	<div id="time"></div>
+	<script>
+		function time() {
+			var DayList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+
+			var d = new Date();
+			var hrs = d.getHours();
+			hrs = Number(hrs);
+			var min = d.getMinutes();
+			min = String(min);
+			var sec = d.getSeconds();
+			sec = String(sec);
+			// var mil = d.getMilliseconds();
+
+
+			var x = d.toDateString();//gets the current date format
+
+			if ((min.length < 2)) {
+				min = "0" + min;
+
+			}
+			if ((sec.length < 2)) {
+				sec = "0" + sec;
+			}
+			if (hrs.length < 1) {
+				hrs = "0" + hrs;
+			}
+			document.getElementById("time").innerHTML = (hrs + ":" + min + ":" + sec);//displaying the time
+			document.getElementById("day").innerHTML = (x);
+		}
+
+		setInterval(time, 100);//calling the time function every one second
+
+
+	</script>
+</body>
+
+</html>
