@@ -29,6 +29,7 @@
 
 	<body>
 		<div id="time"></div>
+		<span id="day"></span>
 		<script>
 			function time() {
 				var DayList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -36,12 +37,11 @@
 
 				var d = new Date();
 				var h = d.getHours();
-				h = Number(h);
+
 				var m = d.getMinutes();
-				m = String(m);
+
 				var s = d.getSeconds();
-				s = String(s);
-				// var mil = d.getMilliseconds();
+
 
 
 				var x = d.toDateString();//gets the current date format
@@ -58,8 +58,8 @@
 				h = (h < 10) ? "0" + h : h;
 				m = (m < 10) ? "0" + m : m;
 				s = (s < 10) ? "0" + s : s;
-				document.getElementById("time").innerHTML = (h + ":" + m+ ":" + s+" "+session);//displaying the time
-				document.getElementById("day").innerHTML = (x);
+				document.getElementById("time").innerHTML = (h + ":" + m + ":" + s + " " + session);//displaying the time
+				document.getElementById("day").innerHTML = (d.toDateString());
 			}
 
 			setInterval(time, 1000);//calling the time function every one second
