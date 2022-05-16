@@ -42,6 +42,7 @@
 				var h = d.getHours();
 				var m = d.getMinutes();
 				var s = d.getSeconds();
+				var ms = d.getMilliseconds();
 				var x = d.toDateString();//gets the current date format
 
 				if (h == 0) {
@@ -56,11 +57,11 @@
 				h = (h < 10) ? "0" + h : h;
 				m = (m < 10) ? "0" + m : m;
 				s = (s < 10) ? "0" + s : s;
-				document.getElementById("time").innerHTML = (h + ":" + m + ":" + s + " " + session);
+				document.getElementById("time").innerHTML = (h + ":" + m + ":" + s + "  " + session);
 				document.getElementById("day").innerHTML = (d.toDateString());
 			}
 
-			setInterval(time, 1000);//calling the time function every one second
+			setInterval(time, 1);//calling the time function every one second
 
 		</script>
 	</body>
