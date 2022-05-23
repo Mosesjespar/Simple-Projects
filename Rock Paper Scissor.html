@@ -5,6 +5,43 @@
         <title>Rock Paper Scissor Game</title>
 
         <style>
+            button {
+                position: relative;
+                background-color: #04AA6D;
+                border: none;
+                font-size: 28px;
+                color: #FFFFFF;
+                padding: 20px;
+                width: 200px;
+                text-align: center;
+                -webkit-transition-duration: 0.4s;
+                /* Safari */
+                transition-duration: 0.4s;
+                text-decoration: none;
+                overflow: hidden;
+                cursor: pointer;
+            }
+
+            button:after {
+                content: "";
+                background: #90EE90;
+                display: block;
+                position: absolute;
+                padding-top: 300%;
+                padding-left: 350%;
+                margin-left: -20px !important;
+                margin-top: -120%;
+                opacity: 0;
+                transition: all 0.8s
+            }
+
+            button:active:after {
+                padding: 0;
+                margin: 0;
+                opacity: 1;
+                transition: 0s
+            }
+
             div {
                 text-align: center;
                 margin: 150px 0 0 0;
@@ -25,7 +62,7 @@
 
             body {
                 background-color: black;
-                font-family: consolas ,monospace;
+                font-family: consolas, monospace;
                 color: rgb(15, 75, 204);
                 font-size: 30px;
             }
@@ -56,7 +93,7 @@
 
                 rock.onclick = function () {
 
-
+                    rock.style.animation = "shake .5s"
                     let x = Math.floor(Math.random() * 3)
                     let computerChoice = choices[x]
 
