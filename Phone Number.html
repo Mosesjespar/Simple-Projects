@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Three Random Numbers</title>
+        <style>
+
+        </style>
+
+    </head>
+
+    <body>
+        <h3>Creating Random Phone Numbers</h3>
+
+
+        <div>
+            <input type="radio" name="code" id="mtn">MTN <br><br>
+            <input type="radio" name="code" id="airtel">AIRTEL
+
+            <div id="sec">+256 7
+                <span id="p0">?</span>
+                <span id="p1">?</span>
+                <span id="p2">?</span>
+                <span id="p3">?</span>
+                <span id="p4">?</span>
+                <span id="p5">?</span>
+                <span id="p6">?</span>
+                <span id="p7">?</span>
+
+            </div>
+
+
+
+        </div><br>
+        <button id="rndmise">Generate</button>
+        <button id="reset">Reset</button>
+
+        <script>
+
+
+            document.getElementById("rndmise").onclick = function () {
+
+                if (document.getElementById("mtn").checked) {//checking if mtn is selected
+                    document.getElementById("p0").innerHTML = "7";
+                    document.getElementById("p1").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("p2").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("p3").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("p4").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("p5").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("p6").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("p7").innerHTML = Math.floor(Math.random() * 10);
+                }
+
+                else if (document.getElementById("airtel").checked) {//checking if airtel is selected
+                    document.getElementById("p0").innerHTML = "5"
+                    document.getElementById("p1").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("p2").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("p3").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("p4").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("p5").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("p6").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("p7").innerHTML = Math.floor(Math.random() * 10);
+                }
+
+                else {
+                    alert("Make a selection")
+                }
+            }
+
+
+
+            document.getElementById("reset").onclick = function () {
+
+                document.getElementById("p0").innerHTML = "?"
+                document.getElementById("p1").innerHTML = "?"
+                document.getElementById("p2").innerHTML = "?"
+                document.getElementById("p3").innerHTML = "?"
+                document.getElementById("p4").innerHTML = "?"
+                document.getElementById("p5").innerHTML = "?"
+                document.getElementById("p6").innerHTML = "?"
+                document.getElementById("p7").innerHTML = "?"
+            }
+
+
+        </script>
+    </body>
+
+</html>
