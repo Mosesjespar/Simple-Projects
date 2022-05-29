@@ -2,19 +2,45 @@
 <html>
 
     <head>
-        <title>Three Random Numbers</title>
+        <title>Ugandan Phone Number Generator </title>
+        <link rel="icon" href="favairtel.png" type="image/png">
         <style>
+            #container {
 
+                margin-top: 10%;
+                margin-left: auto;
+                margin-right: auto;
+                width: 70vw;
+                border: 1px solid black;
+                padding: 2rem;
+
+            }
+
+            body {
+                background-color: #800080;
+                color: whitesmoke;
+                text-align: center;
+            }
+
+            input {
+                display: inline-block;
+
+            }
+            p{
+                color: red;
+                background-color: wheat;
+            }
         </style>
 
     </head>
 
     <body>
-      
-        <div>
-            <input type="radio" name="code" id="mtn">MTN <br><br>
+
+        <div id="container">
+            <input type="radio" name="code" id="mtn">MTN &nbsp;
             <input type="radio" name="code" id="airtel">AIRTEL
-            <div id="sec">+256 7
+            <div id="sec">+256 - 7
+                
                 <span id="p0">?</span>
                 <span id="p1">?</span>
                 <span id="p2">?</span>
@@ -25,17 +51,27 @@
                 <span id="p7">?</span>
 
             </div>
+            <button id="rndmise">Generate</button>
+            <button id="reset">Reset</button>
+            <p id="err"></p>
         </div><br>
-        <button id="rndmise">Generate</button>
-        <button id="reset">Reset</button>
+
 
         <script>
 
 
             document.getElementById("rndmise").onclick = function () {
 
+                let _airtel = [0, 4, 5];
+                let _mtn = [7, 6, 8];
+
+                let x = Math.floor(Math.random()*3)
+               
+                let airtel_code = _airtel[x]
+                let mtn_code = _mtn[x]
+
                 if (document.getElementById("mtn").checked) {
-                    document.getElementById("p0").innerHTML = "7";
+                    document.getElementById("p0").innerHTML = mtn_code;
                     document.getElementById("p1").innerHTML = Math.floor(Math.random() * 10);
                     document.getElementById("p2").innerHTML = Math.floor(Math.random() * 10);
                     document.getElementById("p3").innerHTML = Math.floor(Math.random() * 10);
@@ -43,10 +79,11 @@
                     document.getElementById("p5").innerHTML = Math.floor(Math.random() * 10);
                     document.getElementById("p6").innerHTML = Math.floor(Math.random() * 10);
                     document.getElementById("p7").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("err").innerHTML = ''
                 }
 
                 else if (document.getElementById("airtel").checked) {
-                    document.getElementById("p0").innerHTML = "5"
+                    document.getElementById("p0").innerHTML = airtel_code
                     document.getElementById("p1").innerHTML = Math.floor(Math.random() * 10);
                     document.getElementById("p2").innerHTML = Math.floor(Math.random() * 10);
                     document.getElementById("p3").innerHTML = Math.floor(Math.random() * 10);
@@ -54,10 +91,11 @@
                     document.getElementById("p5").innerHTML = Math.floor(Math.random() * 10);
                     document.getElementById("p6").innerHTML = Math.floor(Math.random() * 10);
                     document.getElementById("p7").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("err").innerHTML = ''
                 }
 
                 else {
-                    alert("Make a selection")
+                    document.getElementById("err").innerHTML = 'Make a Selection'
                 }
             }
 
@@ -73,6 +111,7 @@
                 document.getElementById("p5").innerHTML = "?"
                 document.getElementById("p6").innerHTML = "?"
                 document.getElementById("p7").innerHTML = "?"
+                document.getElementById("err").innerHTML = ''
             }
 
 
