@@ -17,19 +17,43 @@
             }
 
             body {
-                background-color: #800080;
-                color: whitesmoke;
+                background-color: #00203FFF;
+                color: #ADEFD1FF;
                 text-align: center;
+                display: flex;
+                justify-content: center;
             }
 
-            input {
+            #mtn, #airtel {
                 display: inline-block;
 
             }
             p{
-                color: red;
-                background-color: wheat;
+                color: #00203FFF;
+                background-color: #ADEFD1FF;
             }
+            button{
+                margin: 1rem 0.5rem auto 0.5rem;
+                width: 10vw;
+                height: 4vh;
+                border: none;
+                border-radius: 10px;
+                letter-spacing: 1.8px;
+                font-family: consolas,'monospace';
+                font-weight:200;
+                font-size: 1.05rem;
+                cursor: pointer;
+            }
+            #sec{
+                margin:1rem 0.5rem auto 0.5rem ;
+                width: 15vw;
+                text-align: center;
+                outline: none;
+                border: none;
+                border-bottom: 1px solid #ADEFD1FF;
+                background-color: transparent;
+            }
+
         </style>
 
     </head>
@@ -38,21 +62,11 @@
 
         <div id="container">
             <input type="radio" name="code" id="mtn">MTN &nbsp;
-            <input type="radio" name="code" id="airtel">AIRTEL
-            <div id="sec">+256 - 7
-                
-                <span id="p0">?</span>
-                <span id="p1">?</span> -
-                <span id="p2">?</span> 
-                <span id="p3">?</span>
-                <span id="p4">?</span>
-                <span id="p5">?</span>
-                <span id="p6">?</span>
-                <span id="p7">?</span>
-
-            </div>
+            <input type="radio" name="code" id="airtel">AIRTEL <br>
+            <input type="text" id="sec"> <br>
             <button id="rndmise">Generate</button>
             <button id="reset">Reset</button>
+            <button id="copy">Copy</button>
             <p id="err"></p>
         </div><br>
 
@@ -69,28 +83,23 @@
                
                 let airtel_code = _airtel[x]
                 let mtn_code = _mtn[x]
+                n1 = Math.floor(Math.random() * 10);
+                n2 = Math.floor(Math.random() * 10);
+                n3 = Math.floor(Math.random() * 10);
+                n4 = Math.floor(Math.random() * 10);
+                n5 = Math.floor(Math.random() * 10);
+                n6 = Math.floor(Math.random() * 10);
+                n7 = Math.floor(Math.random() * 10);
 
                 if (document.getElementById("mtn").checked) {
-                    document.getElementById("p0").innerHTML = mtn_code;
-                    document.getElementById("p1").innerHTML = Math.floor(Math.random() * 10);
-                    document.getElementById("p2").innerHTML = Math.floor(Math.random() * 10);
-                    document.getElementById("p3").innerHTML = Math.floor(Math.random() * 10);
-                    document.getElementById("p4").innerHTML = Math.floor(Math.random() * 10);
-                    document.getElementById("p5").innerHTML = Math.floor(Math.random() * 10);
-                    document.getElementById("p6").innerHTML = Math.floor(Math.random() * 10);
-                    document.getElementById("p7").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("sec").value ='+256 7'+mtn_code+ n1 +' ' +n2+n3+n4+n5+n6+n7;
+                    
                     document.getElementById("err").innerHTML = ''
                 }
 
                 else if (document.getElementById("airtel").checked) {
-                    document.getElementById("p0").innerHTML = airtel_code
-                    document.getElementById("p1").innerHTML = Math.floor(Math.random() * 10);
-                    document.getElementById("p2").innerHTML = Math.floor(Math.random() * 10);
-                    document.getElementById("p3").innerHTML = Math.floor(Math.random() * 10);
-                    document.getElementById("p4").innerHTML = Math.floor(Math.random() * 10);
-                    document.getElementById("p5").innerHTML = Math.floor(Math.random() * 10);
-                    document.getElementById("p6").innerHTML = Math.floor(Math.random() * 10);
-                    document.getElementById("p7").innerHTML = Math.floor(Math.random() * 10);
+                    document.getElementById("sec").value ='+256 7'+airtel_code+ n1 +' ' +n2+n3+n4+n5+n6+n7;
+                   
                     document.getElementById("err").innerHTML = ''
                 }
 
@@ -103,17 +112,17 @@
 
             document.getElementById("reset").onclick = function () {
 
-                document.getElementById("p0").innerHTML = "?"
-                document.getElementById("p1").innerHTML = "?"
-                document.getElementById("p2").innerHTML = "?"
-                document.getElementById("p3").innerHTML = "?"
-                document.getElementById("p4").innerHTML = "?"
-                document.getElementById("p5").innerHTML = "?"
-                document.getElementById("p6").innerHTML = "?"
-                document.getElementById("p7").innerHTML = "?"
+                document.getElementById("sec").value =''
                 document.getElementById("err").innerHTML = ''
             }
+            document.getElementById("copy").onclick = function () {
 
+                let my_phone_number = document.getElementById('sec')
+                my_phone_number.select()
+                my_phone_number.setSelectionRange(0,99999)
+                navigator.clipboard.writeText(my_phone_number.value);
+                document.getElementById('err').textContent =''
+            }
 
         </script>
     </body>
