@@ -9,8 +9,10 @@
                 margin-top: 10%;
                 margin-left: auto;
                 margin-right: auto;
-                width: 100%;
+                width: fit-content;
                 font-size: 1.3rem;
+                padding: 5%;
+                border-radius: 10px;
             }
 
 
@@ -28,15 +30,15 @@
                 display: inline-block;
             }
 
-            
+
             p {
                 color: #ADEFD1FF;
                 background-color: transparent;
-                
+
             }
 
             button {
-                
+
                 margin: 1rem 0.5rem auto 0.5rem;
                 width: fit-content;
                 height: max-content;
@@ -55,11 +57,12 @@
                 color: #ADEFD1FF;
 
             }
-            button:hover{
-                background-color:#ADEFD1FF;
+
+            button:hover {
+                background-color: #ADEFD1FF;
                 color: #00203FFF;
                 font-weight: bold;
-             
+
 
             }
 
@@ -71,7 +74,7 @@
                 border: none;
                 background-color: transparent;
                 font-size: 1.3rem;
-                
+
                 cursor: default;
             }
 
@@ -101,6 +104,8 @@
         <script>
 
 
+
+
             document.getElementById("rndmise").onclick = function () {
 
                 let _airtel = [0, 4, 5];
@@ -124,9 +129,10 @@
                     document.getElementById("err").innerHTML = ''
                     document.getElementById("sec").style.borderRadius = '3px'
                     document.getElementById("sec").style.borderBottom = '1px solid #fffb00'
-                    document.getElementById("rndmise").innerHTML='Generate Again!!'
-                    document.getElementById("sec").style.cursor='text'
-                    document.getElementById("sec").style.color='#fffb00'
+                    document.getElementById("rndmise").innerHTML = 'Generate Again!!'
+                    document.getElementById("sec").style.cursor = 'text'
+                    document.getElementById("sec").style.color = '#fffb00'
+
                 }
 
                 else if (document.getElementById("airtel").checked) {
@@ -135,9 +141,9 @@
                     document.getElementById("err").innerHTML = ''
                     document.getElementById("sec").style.borderRadius = '3px'
                     document.getElementById("sec").style.borderBottom = '1px solid #ff0008'
-                    document.getElementById("rndmise").innerHTML='Generate Again!!'
-                    document.getElementById("sec").style.cursor='text'
-                    document.getElementById("sec").style.color='#ff0008'
+                    document.getElementById("rndmise").innerHTML = 'Re-generate!!'
+                    document.getElementById("sec").style.cursor = 'text'
+                    document.getElementById("sec").style.color = '#ff0008'
                 }
 
                 else {
@@ -152,28 +158,28 @@
                 document.getElementById("sec").value = ''
                 document.getElementById("err").innerHTML = ''
                 document.getElementById("sec").style.border = 'none'
-                document.getElementById("rndmise").innerHTML='Generate'
-                document.getElementById("airtel").checked =false
-                document.getElementById("mtn").checked=false
-                document.getElementById("sec").style.cursor='default'
-                
+                document.getElementById("rndmise").innerHTML = 'Generate'
+                document.getElementById("airtel").checked = false
+                document.getElementById("mtn").checked = false
+                document.getElementById("sec").style.cursor = 'default'
+
 
             }
             document.getElementById("copy").onclick = function () {
-                
+
                 let my_phone_number = document.getElementById('sec')
-                if(document.getElementById('sec').value ===''){
+                if (document.getElementById('sec').value === '') {
                     document.getElementById("err").innerHTML = 'Make a Selection and Generate'
                 }
-                else{
+                else {
                     my_phone_number.select()
-                my_phone_number.setSelectionRange(0, 99999)
-                navigator.clipboard.writeText(my_phone_number.value);
-                document.getElementById('err').textContent = 'Copied Successfully!!!'
+                    my_phone_number.setSelectionRange(0, 99999)
+                    navigator.clipboard.writeText(my_phone_number.value);
+                    document.getElementById('err').textContent = 'Copied Successfully!!!'
                 }
-                
+
             }
-            
+
         </script>
     </body>
 
