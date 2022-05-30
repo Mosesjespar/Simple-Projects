@@ -40,10 +40,10 @@
                 
                 margin: 1rem 0.5rem auto 0.5rem;
                 width: fit-content;
-                height: 4vh;
+                height: max-content;
                 border: none;
                 outline: none;
-                border-radius: 10px;
+                border-radius: 5px;
                 letter-spacing: 0.2rem;
                 font-family: sans-serif, 'monospace';
                 font-weight: 200;
@@ -52,11 +52,14 @@
                 transition: 0.06s;
                 padding: 5px 5px 5px 5px;
                 text-align: center;
+                background-color: transparent;
+                color: #ADEFD1FF;
 
             }
             button:hover{
-                font-size: 1.1rem;
-                height: 4.4vh;
+                background-color:#ADEFD1FF;
+                color: #00203FFF;
+                font-weight: bold;
              
 
             }
@@ -67,7 +70,6 @@
                 text-align: center;
                 outline: none;
                 border: none;
-
                 background-color: transparent;
                 font-size: 1.3rem;
                 color: #2BAE66FF;
@@ -88,10 +90,10 @@
         <div id="container">
             <input type="radio" name="code" id="mtn">MTN &nbsp;
             <input type="radio" name="code" id="airtel">AIRTEL <br>
-            <input type="text" id="sec"> <br>&nbsp;
-            <button id="rndmise">Generate</button>&nbsp;
-            <button id="reset">Reset</button>&nbsp;
-            <button id="copy">Copy</button>&nbsp;
+            <input type="text" id="sec"> <br>&nbsp;&nbsp;
+            <button id="rndmise">Generate</button>&nbsp;&nbsp;
+            <button id="reset">Reset</button>&nbsp;&nbsp;
+            <button id="copy">Copy</button>&nbsp;&nbsp;
             <p id="err"></p>
         </div><br>
 
@@ -122,6 +124,7 @@
                     document.getElementById("err").innerHTML = ''
                     document.getElementById("sec").style.borderRadius = '3px'
                     document.getElementById("sec").style.borderBottom = '1px solid #ADEFD1FF'
+                    document.getElementById("rndmise").innerHTML='Generate Again!!'
                 }
 
                 else if (document.getElementById("airtel").checked) {
@@ -130,6 +133,7 @@
                     document.getElementById("err").innerHTML = ''
                     document.getElementById("sec").style.borderRadius = '3px'
                     document.getElementById("sec").style.borderBottom = '1px solid #ADEFD1FF'
+                    document.getElementById("rndmise").innerHTML='Generate Again!!'
                 }
 
                 else {
@@ -144,22 +148,26 @@
                 document.getElementById("sec").value = ''
                 document.getElementById("err").innerHTML = ''
                 document.getElementById("sec").style.border = 'none'
+                document.getElementById("rndmise").innerHTML='Generate'
+                document.getElementById("airtel").checked =false
+                document.getElementById("mtn").checked=false
+
             }
             document.getElementById("copy").onclick = function () {
                 
                 let my_phone_number = document.getElementById('sec')
                 if(document.getElementById('sec').value ===''){
-                    document.getElementById("err").innerHTML = 'Make a Selection'
+                    document.getElementById("err").innerHTML = 'Make a Selection and Generate'
                 }
                 else{
                     my_phone_number.select()
                 my_phone_number.setSelectionRange(0, 99999)
                 navigator.clipboard.writeText(my_phone_number.value);
-                document.getElementById('err').textContent = ''
+                document.getElementById('err').textContent = 'Copied Successfully!!!'
                 }
                 
             }
-
+            
         </script>
     </body>
 
