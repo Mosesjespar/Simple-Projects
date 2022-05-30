@@ -136,12 +136,18 @@
                 document.getElementById("sec").style.border = 'none'
             }
             document.getElementById("copy").onclick = function () {
-
+                
                 let my_phone_number = document.getElementById('sec')
-                my_phone_number.select()
+                if(document.getElementById('sec').value ===''){
+                    return ''
+                }
+                else{
+                    my_phone_number.select()
                 my_phone_number.setSelectionRange(0, 99999)
                 navigator.clipboard.writeText(my_phone_number.value);
                 document.getElementById('err').textContent = ''
+                }
+                
             }
 
         </script>
