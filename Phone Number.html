@@ -6,15 +6,13 @@
         <link rel="icon" href="favairtel.png" type="image/png">
         <style>
             #container {
-
                 margin-top: 10%;
                 margin-left: auto;
                 margin-right: auto;
                 width: 100%;
-               
                 font-size: 1.3rem;
-
             }
+
 
             body {
                 background-color: #00203FFF;
@@ -24,16 +22,17 @@
                 justify-content: center;
             }
 
+
             #mtn,
             #airtel {
                 display: inline-block;
-
-
             }
 
+            
             p {
                 color: #ADEFD1FF;
                 background-color: transparent;
+                
             }
 
             button {
@@ -72,7 +71,8 @@
                 border: none;
                 background-color: transparent;
                 font-size: 1.3rem;
-                color: #2BAE66FF;
+                
+                cursor: default;
             }
 
             input[type=radio] {
@@ -123,8 +123,10 @@
 
                     document.getElementById("err").innerHTML = ''
                     document.getElementById("sec").style.borderRadius = '3px'
-                    document.getElementById("sec").style.borderBottom = '1px solid #ADEFD1FF'
+                    document.getElementById("sec").style.borderBottom = '1px solid #fffb00'
                     document.getElementById("rndmise").innerHTML='Generate Again!!'
+                    document.getElementById("sec").style.cursor='text'
+                    document.getElementById("sec").style.color='#fffb00'
                 }
 
                 else if (document.getElementById("airtel").checked) {
@@ -132,8 +134,10 @@
 
                     document.getElementById("err").innerHTML = ''
                     document.getElementById("sec").style.borderRadius = '3px'
-                    document.getElementById("sec").style.borderBottom = '1px solid #ADEFD1FF'
+                    document.getElementById("sec").style.borderBottom = '1px solid #ff0008'
                     document.getElementById("rndmise").innerHTML='Generate Again!!'
+                    document.getElementById("sec").style.cursor='text'
+                    document.getElementById("sec").style.color='#ff0008'
                 }
 
                 else {
@@ -151,6 +155,8 @@
                 document.getElementById("rndmise").innerHTML='Generate'
                 document.getElementById("airtel").checked =false
                 document.getElementById("mtn").checked=false
+                document.getElementById("sec").style.cursor='default'
+                
 
             }
             document.getElementById("copy").onclick = function () {
