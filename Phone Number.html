@@ -11,7 +11,7 @@
                 margin-left: auto;
                 margin-right: auto;
                 width: 100%;
-               
+
                 padding: 2rem;
                 font-size: 1.3rem;
 
@@ -25,41 +25,46 @@
                 justify-content: center;
             }
 
-            #mtn, #airtel {
+            #mtn,
+            #airtel {
                 display: inline-block;
-                
+
 
             }
-            p{
+
+            p {
                 color: #ADEFD1FF;
                 background-color: transparent;
             }
-            button{
+
+            button {
                 margin: 1rem 0.5rem auto 0.5rem;
                 width: fit-content;
                 height: 4vh;
                 border: none;
                 border-radius: 10px;
                 letter-spacing: 0.2rem;
-                font-family: consolas,'monospace';
-                font-weight:200;
+                font-family: consolas, 'monospace';
+                font-weight: 200;
                 font-size: 1.05rem;
                 cursor: pointer;
-                
+
             }
-            #sec{
-                margin:1rem 0.5rem auto 0.5rem ;
+
+            #sec {
+                margin: 1rem 0.5rem auto 0.5rem;
                 width: fit-content;
                 text-align: center;
                 outline: none;
                 border: none;
-                border-bottom: 1px solid #ADEFD1FF;
+
                 background-color: transparent;
                 font-size: 1.3rem;
-                color:#2BAE66FF ;
+                color: #2BAE66FF;
             }
+
             input[type=radio] {
-               
+
                 height: 20px;
                 width: 20px;
                 border: 0;
@@ -89,8 +94,8 @@
                 let _airtel = [0, 4, 5];
                 let _mtn = [7, 6, 8];
 
-                let x = Math.floor(Math.random()*3)
-               
+                let x = Math.floor(Math.random() * 3)
+
                 let airtel_code = _airtel[x]
                 let mtn_code = _mtn[x]
                 n1 = Math.floor(Math.random() * 10);
@@ -102,15 +107,19 @@
                 n7 = Math.floor(Math.random() * 10);
 
                 if (document.getElementById("mtn").checked) {
-                    document.getElementById("sec").value ='+256 7'+mtn_code+ n1 +' ' +n2+n3+n4+n5+n6+n7;
-                    
+                    document.getElementById("sec").value = '+256 7' + mtn_code + n1 + ' ' + n2 + n3 + n4 + n5 + n6 + n7;
+
                     document.getElementById("err").innerHTML = ''
+                    document.getElementById("sec").style.borderRadius = '3px'
+                    document.getElementById("sec").style.borderBottom = '1px solid #ADEFD1FF'
                 }
 
                 else if (document.getElementById("airtel").checked) {
-                    document.getElementById("sec").value ='+256 7'+airtel_code+ n1 +' ' +n2+n3+n4+n5+n6+n7;
-                   
+                    document.getElementById("sec").value = '+256 7' + airtel_code + n1 + ' ' + n2 + n3 + n4 + n5 + n6 + n7;
+
                     document.getElementById("err").innerHTML = ''
+                    document.getElementById("sec").style.borderRadius = '3px'
+                    document.getElementById("sec").style.borderBottom = '1px solid #ADEFD1FF'
                 }
 
                 else {
@@ -122,16 +131,17 @@
 
             document.getElementById("reset").onclick = function () {
 
-                document.getElementById("sec").value =''
+                document.getElementById("sec").value = ''
                 document.getElementById("err").innerHTML = ''
+                document.getElementById("sec").style.border = 'none'
             }
             document.getElementById("copy").onclick = function () {
 
                 let my_phone_number = document.getElementById('sec')
                 my_phone_number.select()
-                my_phone_number.setSelectionRange(0,99999)
+                my_phone_number.setSelectionRange(0, 99999)
                 navigator.clipboard.writeText(my_phone_number.value);
-                document.getElementById('err').textContent =''
+                document.getElementById('err').textContent = ''
             }
 
         </script>
