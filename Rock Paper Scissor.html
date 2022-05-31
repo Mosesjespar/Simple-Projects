@@ -96,8 +96,6 @@
                 points
             </p>
         </div>
-
-
         <script>
             window.onload = function () {
 
@@ -110,7 +108,6 @@
                 let result = document.getElementById('result')
                 let score = document.getElementById('score')
                 let marks_scored = 0;
-
                 rock.onclick = function () {
                     let x = Math.floor(Math.random() * 3)
                     let computerChoice = choices[x]
@@ -122,8 +119,9 @@
                         result.style.color = 'rgb(15, 75, 204)'
                         document.getElementById('compChoice').style.color = 'rgb(15, 75, 204)'
                         document.getElementById('userChoice').style.color = 'rgb(15, 75, 204)'
-                        marks_scored+=2;
+                        marks_scored += 2;
                         score.textContent = marks_scored
+                        marks_scored < 0 ? score.style.color = 'red' : marks_scored > 0 ? score.style.color = 'green' : score.style.color = 'aliceblue';
 
                     }
                     else if (computerChoice === 'paper') {
@@ -131,22 +129,23 @@
                         result.style.color = 'red'
                         document.getElementById('compChoice').style.color = 'green'
                         document.getElementById('userChoice').style.color = 'red'
-                        marks_scored-=3;
+                        marks_scored -= 3;
                         score.textContent = marks_scored
+                        marks_scored < 0 ? score.style.color = 'red' : marks_scored > 0 ? score.style.color = 'green' : score.style.color = 'aliceblue';
+
                     }
                     else {
                         result.textContent = 'You Win!!!'
                         result.style.color = 'green'
                         document.getElementById('compChoice').style.color = 'red'
                         document.getElementById('userChoice').style.color = 'green'
-                        marks_scored+=5;
+                        marks_scored += 5;
                         score.textContent = marks_scored
+                        marks_scored < 0 ? score.style.color = 'red' : marks_scored > 0 ? score.style.color = 'green' : score.style.color = 'aliceblue';
+
                     }
 
-
-
                 }
-
 
                 paper.onclick = function () {
                     let x = Math.floor(Math.random() * 3)
@@ -159,27 +158,31 @@
                         result.style.color = 'rgb(15, 75, 204)'
                         document.getElementById('compChoice').style.color = 'rgb(15, 75, 204)'
                         document.getElementById('userChoice').style.color = 'rgb(15, 75, 204)'
-                        marks_scored+=2;
+                        marks_scored += 2;
                         score.textContent = marks_scored
+                        marks_scored < 0 ? score.style.color = 'red' : marks_scored > 0 ? score.style.color = 'green' : score.style.color = 'aliceblue';
+
                     }
                     else if (computerChoice === 'scissor') {
                         result.textContent = 'You Lose!'
                         result.style.color = 'red'
                         document.getElementById('compChoice').style.color = 'green'
                         document.getElementById('userChoice').style.color = 'red'
-                        marks_scored-=3;
+                        marks_scored -= 3;
                         score.textContent = marks_scored
+                        marks_scored < 0 ? score.style.color = 'red' : marks_scored > 0 ? score.style.color = 'green' : score.style.color = 'aliceblue';
+
                     }
                     else {
                         result.textContent = 'You Win!!!'
                         result.style.color = 'green'
                         document.getElementById('compChoice').style.color = 'red'
                         document.getElementById('userChoice').style.color = 'green'
-                        marks_scored+=5;
+                        marks_scored += 5;
                         score.textContent = marks_scored
+                        marks_scored < 0 ? score.style.color = 'red' : marks_scored > 0 ? score.style.color = 'green' : score.style.color = 'aliceblue';
+
                     }
-
-
 
                 }
 
@@ -194,30 +197,33 @@
                         result.style.color = 'rgb(15, 75, 204)'
                         document.getElementById('compChoice').style.color = 'rgb(15, 75, 204)'
                         document.getElementById('userChoice').style.color = 'rgb(15, 75, 204)'
-                        marks_scored+=2;
+                        marks_scored += 2;
                         score.textContent = marks_scored
+                        marks_scored < 0 ? score.style.color = 'red' : marks_scored > 0 ? score.style.color = 'green' : score.style.color = 'aliceblue';
+
                     }
                     else if (computerChoice === 'rock') {
                         result.textContent = 'You Lose!'
                         result.style.color = 'red'
                         document.getElementById('compChoice').style.color = 'green'
                         document.getElementById('userChoice').style.color = 'red'
-                        marks_scored-=3;
+                        marks_scored -= 3;
                         score.textContent = marks_scored
+                        marks_scored < 0 ? score.style.color = 'red' : marks_scored > 0 ? score.style.color = 'green' : score.style.color = 'aliceblue';
+
                     }
                     else {
                         result.textContent = 'You Win!!!'
                         result.style.color = 'green'
                         document.getElementById('compChoice').style.color = 'red'
                         document.getElementById('userChoice').style.color = 'green'
-                        marks_scored+=5;
+                        marks_scored += 5;
                         score.textContent = marks_scored
+                        marks_scored < 0 ? score.style.color = 'red' : marks_scored > 0 ? score.style.color = 'green' : score.style.color = 'aliceblue';
+
                     }
 
-
-
                 }
-
 
             }
         </script>
