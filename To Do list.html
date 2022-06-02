@@ -8,12 +8,21 @@
         <style>
             li {
                 margin-bottom: 10px;
+
+                width: fit-content;
+
             }
 
             li button {
-                font-size: 8px;
+                font-size: 12px;
                 margin-left: 20px;
                 color: #666;
+
+
+            }
+
+            button {
+                cursor: pointer;
             }
         </style>
     </head>
@@ -25,7 +34,7 @@
         <div>
             <label for="item">Enter a new Task:</label>
             <input type="text" name="item" id="item">
-            <button>Add Task</button>
+            <button onclick="to_do()" id="sendbtn">Add Task</button>
         </div>
 
         <ul>
@@ -33,11 +42,22 @@
         </ul>
 
         <script>
-            let task_list;
-            let user_input;
-            let del_button;
-            var x=[]
-            console.log(x.push('r'))
+
+            function to_do() {
+
+                let task_list = document.querySelector('ul')
+                let new_task = document.createElement('li')
+                let del_btn = document.createElement('button')
+                del_btn.textContent = 'Delete'
+                del_btn.onclick = function () {
+                    task_list.removeChild(new_task)
+
+                }
+                new_task.textContent = document.querySelector('#item').value;
+                task_list.appendChild(new_task)
+                new_task.appendChild(del_btn)
+            }
+
         </script>
     </body>
 
