@@ -6,6 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>To DO list </title>
         <style>
+            body {
+                font-size: 1.5rem;
+            }
+
             li {
                 margin-bottom: 10px;
 
@@ -17,6 +21,7 @@
                 font-size: 12px;
                 margin-left: 20px;
                 color: #666;
+                text-align: center;
 
 
             }
@@ -24,39 +29,59 @@
             button {
                 cursor: pointer;
             }
+
+            #container {
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            h1 {
+                text-align: center;
+            }
         </style>
     </head>
 
     <body>
 
-        <h1>My TO DO list</h1>
+        <div id="container">
+            <h1>My TO DO list</h1>
 
-        <div>
-            <label for="item">Enter a new Task:</label>
-            <input type="text" name="item" id="item">
-            <button onclick="to_do()" id="sendbtn">Add Task</button>
+            <div>
+                <label for="item">Enter a new Task:</label>
+                <input type="text" name="item" id="item">
+                <button id="sendbtn">Add Task</button>
+            </div>
+
+            <ul>
+
+            </ul>
         </div>
 
-        <ul>
-
-        </ul>
-
         <script>
+            document.querySelector('#item').focus()
 
-            function to_do() {
-
+            document.querySelector('button').addEventListener('click', () => {
                 let task_list = document.querySelector('ul')
                 let new_task = document.createElement('li')
                 let del_btn = document.createElement('button')
                 del_btn.textContent = 'Delete'
                 del_btn.onclick = function () {
                     task_list.removeChild(new_task)
+                    document.querySelector('#item').focus()
 
                 }
                 new_task.textContent = document.querySelector('#item').value;
                 task_list.appendChild(new_task)
                 new_task.appendChild(del_btn)
-            }
+                document.querySelector('#item').value = ''
+                document.querySelector('#item').focus()
+            })
+
+
+
+
+
 
         </script>
     </body>
