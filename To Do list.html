@@ -124,7 +124,6 @@
 
             }
 
-
             #sendbtn:hover:after {
                 top: 0;
 
@@ -140,7 +139,6 @@
                 outline: none;
                 border-bottom: 1.3px solid #3498db;
                 border-radius: 2px;
-
             }
 
             #item {
@@ -159,15 +157,12 @@
                 <input type="text" name="item" id="item">
                 <button id="sendbtn">Add Task</button>
             </div>
-
             <ul>
 
             </ul>
         </div>
 
         <script>
-
-
             document.querySelector('button').addEventListener('click', () => {
                 let task_list = document.querySelector('ul')
                 let new_task = document.createElement('li')
@@ -183,10 +178,6 @@
                 document.querySelector('#item').value = ''
                 document.querySelector('#item').focus()
             })
-
-
-
-
         </script>
     </body>
 
