@@ -83,43 +83,65 @@
             }
 
 
-            .mtn {
-                border: 4px solid yellow;
-                background-color: rgb(17, 17, 15);
-                border-radius: 50%;
-                height: 10px;
-                width: 10px;
-                cursor: pointer;
-                display: inline-block;
-
-            }
-
-            .airtel {
-                border: 4px solid #ff0008;
-                background-color: white;
-                border-radius: 50%;
-                height: 10px;
-                width: 10px;
-                cursor: pointer;
-                display: inline-block;
-
-            }
-
-            .airtel:checked {
-                border: 2px solid blue;
-            }
-
-            #mtn,
-            #airtel {
-                display: none;
-                cursor: pointer;
-            }
-
             #btn {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-wrap: wrap;
+            }
+
+            .mtn,
+            .airtel {
+                display: inline-block;
+            }
+
+            input[type="radio"] {
+                position: relative;
+                top: 0;
+                height: 15px;
+                width: 15px;
+                cursor: pointer;
+                -webkit-appearance: none;
+                outline: none;
+            }
+
+            #mtn[type="radio"]::before {
+                content: '';
+                position: absolute;
+                top: -4px;
+                left: -4px;
+                width: 100%;
+                height: 100%;
+                border: 3px solid yellow;
+                border-radius: 50%;
+                background: transparent;
+            }
+
+            #airtel[type="radio"]::before {
+                content: '';
+                position: absolute;
+                top: -4px;
+                left: -4px;
+                width: 100%;
+                height: 100%;
+                border: 3px solid red;
+                border-radius: 50%;
+                background: transparent;
+            }
+
+            #mtn:checked[type="radio"]::before {
+                background-color: rgb(53, 53, 141);
+
+            }
+
+            #airtel:checked[type="radio"]::before {
+                background-color: white;
+
+            }
+
+            div {
+                font-family: sans-serif;
+
             }
         </style>
 
@@ -128,8 +150,8 @@
     <body>
 
         <div id="container">
-            <div class="mtn"><input type="radio" name="code" id="mtn"></div> MTN &nbsp;
-            <div class="airtel"><input type="radio" name="code" id="airtel"></div> AIRTEL <br>
+            <div class="mtn"><input type="radio" name="code" id="mtn"> <span id="cmtn">MTN</span></div> &nbsp;
+            <div class="airtel"><input type="radio" name="code" id="airtel"> <span id="cairtel">AIRTEL</span></div> <br>
             <input type="text" id="sec"> <br>
             <div id="btn">
                 <div><button id="rndmise">Generate</button></div>
@@ -140,10 +162,6 @@
         </div><br>
 
         <script>
-
-
-
-
             document.getElementById("rndmise").onclick = function () {
 
                 let _airtel = [0, 4, 5];
@@ -170,6 +188,8 @@
                     document.getElementById("rndmise").innerHTML = 'Generate'
                     document.getElementById("sec").style.cursor = 'text'
                     document.getElementById("sec").style.color = '#fffb00'
+                    document.getElementById("cmtn").style.color = 'yellow'
+                    document.getElementById("cairtel").style.color = '#ADEFD1FF'
 
                 }
 
@@ -182,14 +202,14 @@
                     document.getElementById("rndmise").innerHTML = 'Generate'
                     document.getElementById("sec").style.cursor = 'text'
                     document.getElementById("sec").style.color = '#ff0008'
+                    document.getElementById("cairtel").style.color = 'red'
+                    document.getElementById("cmtn").style.color = '#ADEFD1FF'
                 }
 
                 else {
                     document.getElementById("err").innerHTML = 'Make a Selection'
                 }
             }
-
-
 
             document.getElementById("reset").onclick = function () {
 
@@ -215,6 +235,7 @@
                     my_phone_number.setSelectionRange(0, 99999)
                     navigator.clipboard.writeText(my_phone_number.value);
                     document.getElementById('err').textContent = 'Copied Successfully!!!'
+                    document.getElementById("err").style.color = 'green'
                 }
 
             }
