@@ -199,9 +199,13 @@
             document.getElementById("result").onclick = function () {
                 var ans = (document.getElementById("input").innerHTML);
                 let output = eval(ans)
-
-
                 document.getElementById("input").innerHTML = (output);
+            }
+            document.getElementById('del').onclick = function(){
+                let x = document.getElementById("input").innerHTML
+                x = x.split('')
+                x.pop()
+                document.getElementById("input").innerHTML = x.join('')
             }
         </script>
     </body>
