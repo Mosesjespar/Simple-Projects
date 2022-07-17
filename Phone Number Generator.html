@@ -28,7 +28,6 @@
                 font-family: sans-serif;
             }
 
-
             #mtn,
             #airtel {
                 display: inline-block;
@@ -56,8 +55,6 @@
                 text-align: center;
                 background-color: transparent;
                 color: #ADEFD1FF;
-
-
             }
 
             button:hover {
@@ -137,7 +134,6 @@
 
             #airtel:checked[type="radio"]::before {
                 background-color: white;
-
             }
         </style>
 
@@ -205,7 +201,6 @@
             }
 
             document.getElementById("reset").onclick = function () {
-
                 document.getElementById("sec").value = ''
                 document.getElementById("err").innerHTML = ''
                 document.getElementById("sec").style.border = 'none'
@@ -218,7 +213,6 @@
 
             }
             document.getElementById("copy").onclick = function () {
-
                 let my_phone_number = document.getElementById('sec')
                 if (document.getElementById('sec').value === '') {
                     document.getElementById("err").innerHTML = 'Cannot copy Invalid number'
@@ -233,7 +227,6 @@
                 }
 
             }
-
         </script>
     </body>
 </html>
